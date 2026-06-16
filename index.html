@@ -1,391 +1,617 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ujjwal Kumar — Resume</title>
-<style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ujjwal Kumar - Resume</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-  body {
-    font-family: 'Georgia', serif;
-    font-size: 10.5pt;
-    color: #1a1a1a;
-    background: #fff;
-    line-height: 1.45;
-  }
+      body {
+        font-family: 'Georgia', serif;
+        font-size: 10.5pt;
+        color: #1a1a1a;
+        background: #fff;
+        line-height: 1.45;
+      }
 
-  .page {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 42px 52px;
-  }
+      .page {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 42px 52px;
+      }
 
-  /* ── HEADER ── */
-  .header {
-    text-align: center;
-    padding-bottom: 14px;
-    border-bottom: 2px solid #1a1a1a;
-    margin-bottom: 16px;
-  }
+      /* ── HEADER ── */
+      .header {
+        text-align: center;
+        padding-bottom: 14px;
+        border-bottom: 2px solid #1a1a1a;
+        margin-bottom: 16px;
+      }
 
-  .header h1 {
-    font-family: 'Georgia', serif;
-    font-size: 22pt;
-    font-weight: 700;
-    letter-spacing: 0.04em;
-    color: #0d0d0d;
-    margin-bottom: 5px;
-  }
+      .header h1 {
+        font-family: 'Georgia', serif;
+        font-size: 22pt;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: #0d0d0d;
+        margin-bottom: 5px;
+      }
 
-  .contact-line {
-    font-size: 8.5pt;
-    color: #444;
-    letter-spacing: 0.02em;
-  }
+      .contact-line {
+        font-size: 8.5pt;
+        color: #444;
+        letter-spacing: 0.02em;
+      }
 
-  .contact-line a {
-    color: #1a4fa8;
-    text-decoration: none;
-  }
+      .contact-line a {
+        color: #1a4fa8;
+        text-decoration: none;
+      }
 
-  .contact-line span {
-    margin: 0 5px;
-    color: #bbb;
-  }
+      .contact-line span {
+        margin: 0 5px;
+        color: #bbb;
+      }
 
-  /* ── SECTION ── */
-  .section {
-    margin-bottom: 13px;
-  }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 18px;
+        margin-bottom: 20px;
+      }
 
-  .section-title {
-    font-family: 'Georgia', serif;
-    font-size: 9pt;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: #1a1a1a;
-    border-bottom: 0.75px solid #aaa;
-    padding-bottom: 3px;
-    margin-bottom: 8px;
-  }
+      .hero-divider {
+        width: 100%;
+        max-width: 760px;
+        margin: 0 auto 24px;
+        border: none;
+        border-top: 1px solid rgba(26, 26, 26, 0.18);
+        opacity: 0.7;
+      }
 
-  /* ── SUMMARY ── */
-  .summary p {
-    font-size: 9.8pt;
-    color: #2c2c2c;
-    line-height: 1.6;
-  }
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 160px;
+        padding: 0.9em 1.4em;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease;
+      }
 
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 3px 10px;
-  }
+      .button-primary {
+        background: #1a4fa8;
+        color: #fff;
+        border: 1px solid transparent;
+      }
 
-  .skill-label {
-    font-weight: 700;
-    font-size: 9.5pt;
-    white-space: nowrap;
-    color: #1a1a1a;
-  }
+      .button-secondary {
+        background: transparent;
+        color: #1a4fa8;
+        border: 1px solid #1a4fa8;
+      }
 
-  .skill-value {
-    font-size: 9.5pt;
-    color: #333;
-  }
+      .button:hover,
+      .button:focus-visible {
+        transform: translateY(-1px);
+        box-shadow: 0 12px 22px rgba(26, 26, 26, 0.1);
+      }
 
-  /* ── EXPERIENCE / PROJECTS ── */
-  .entry {
-    margin-bottom: 9px;
-  }
+      .button:focus-visible {
+        outline: 3px solid rgba(26, 79, 168, 0.25);
+        outline-offset: 3px;
+      }
 
-  .entry-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 1px;
-  }
+      @media (max-width: 520px) {
+        .hero-actions {
+          flex-direction: column;
+          align-items: stretch;
+          width: 100%;
+        }
 
-  .entry-org {
-    font-weight: 700;
-    font-size: 10pt;
-    color: #0d0d0d;
-  }
+        .button {
+          width: 100%;
+          min-width: 0;
+        }
+      }
 
-  .entry-location {
-    font-size: 9pt;
-    color: #555;
-    text-align: right;
-  }
+      /* ── SECTION ── */
+      .section {
+        margin-bottom: 13px;
+      }
 
-  .entry-role-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
-  }
+      .section-title {
+        font-family: 'Georgia', serif;
+        font-size: 9pt;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #1a1a1a;
+        border-bottom: 0.75px solid #aaa;
+        padding-bottom: 3px;
+        margin-bottom: 8px;
+      }
 
-  .entry-role {
-    font-style: italic;
-    font-size: 9.5pt;
-    color: #444;
-  }
+      /* ── SUMMARY ── */
+      .summary p {
+        font-size: 9.8pt;
+        color: #2c2c2c;
+        line-height: 1.6;
+      }
 
-  .entry-date {
-    font-size: 9pt;
-    color: #555;
-    text-align: right;
-  }
+      /* ── SKILLS ── */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 3px 10px;
+      }
 
-  .entry-title-line {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 4px;
-  }
+      .skill-label {
+        font-weight: 700;
+        font-size: 9.5pt;
+        white-space: nowrap;
+        color: #1a1a1a;
+      }
 
-  .entry-name {
-    font-weight: 700;
-    font-size: 10pt;
-    color: #0d0d0d;
-  }
+      .skill-value {
+        font-size: 9.5pt;
+        color: #333;
+      }
 
-  .entry-link {
-    font-size: 8.5pt;
-    color: #1a4fa8;
-    text-decoration: none;
-    border: 0.75px solid #1a4fa8;
-    padding: 1px 7px;
-    border-radius: 3px;
-  }
+      /* ── EXPERIENCE / PROJECTS ── */
+      .entry {
+        margin-bottom: 9px;
+      }
 
-  ul.bullets {
-    margin-left: 16px;
-    list-style: disc;
-  }
+      .entry-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 1px;
+      }
 
-  ul.bullets li {
-    font-size: 9.5pt;
-    color: #2a2a2a;
-    margin-bottom: 2.5px;
-    line-height: 1.5;
-  }
+      .entry-org {
+        font-weight: 700;
+        font-size: 10pt;
+        color: #0d0d0d;
+      }
 
-  ul.bullets li strong {
-    font-weight: 700;
-    color: #0d0d0d;
-  }
+      .entry-location {
+        font-size: 9pt;
+        color: #555;
+        text-align: right;
+      }
 
-  /* ── ACHIEVEMENTS ── */
-  ul.achievements {
-    margin-left: 16px;
-    list-style: disc;
-  }
+      .entry-role-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
 
-  ul.achievements li {
-    font-size: 9.5pt;
-    color: #2a2a2a;
-    margin-bottom: 3px;
-    line-height: 1.5;
-  }
+      .entry-role {
+        font-style: italic;
+        font-size: 9.5pt;
+        color: #444;
+      }
 
-  ul.achievements li strong {
-    font-weight: 700;
-    color: #0d0d0d;
-  }
+      .entry-date {
+        font-size: 9pt;
+        color: #555;
+        text-align: right;
+      }
 
-  ul.achievements li a {
-    color: #1a4fa8;
-    text-decoration: none;
-  }
+      .entry-title-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
 
-  /* ── EDUCATION ── */
-  .edu-block {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-  }
+      .entry-name {
+        font-weight: 700;
+        font-size: 10pt;
+        color: #0d0d0d;
+      }
 
-  .edu-left .degree {
-    font-weight: 700;
-    font-size: 10pt;
-    color: #0d0d0d;
-  }
+      .entry-link {
+        font-size: 8.5pt;
+        color: #1a4fa8;
+        text-decoration: none;
+        border: 0.75px solid #1a4fa8;
+        padding: 1px 7px;
+        border-radius: 3px;
+      }
 
-  .edu-left .institution {
-    font-size: 9.5pt;
-    color: #444;
-    margin-top: 1px;
-  }
+      ul.bullets {
+        margin-left: 16px;
+        list-style: disc;
+      }
 
-  .edu-right {
-    text-align: right;
-  }
+      ul.bullets li {
+        font-size: 9.5pt;
+        color: #2a2a2a;
+        margin-bottom: 2.5px;
+        line-height: 1.5;
+      }
 
-  .edu-right .years {
-    font-size: 9.5pt;
-    color: #444;
-  }
+      ul.bullets li strong {
+        font-weight: 700;
+        color: #0d0d0d;
+      }
 
-  .edu-right .gpa {
-    font-size: 9.5pt;
-    color: #444;
-    margin-top: 1px;
-  }
+      /* ── ACHIEVEMENTS ── */
+      ul.achievements {
+        margin-left: 16px;
+        list-style: disc;
+      }
 
-  .edu-right .gpa strong {
-    font-weight: 700;
-    color: #0d0d0d;
-  }
+      ul.achievements li {
+        font-size: 9.5pt;
+        color: #2a2a2a;
+        margin-bottom: 3px;
+        line-height: 1.5;
+      }
 
-  @media print {
-    body { font-size: 10pt; }
-    .page { padding: 28px 40px; }
-    a { color: inherit !important; }
-    .entry-link { border-color: #555; color: #555; }
-  }
-</style>
-</head>
-<body>
-<div class="page">
+      ul.achievements li strong {
+        font-weight: 700;
+        color: #0d0d0d;
+      }
 
-  <!-- HEADER -->
-  <header class="header">
-    <h1>Ujjwal Kumar</h1>
-    <div class="contact-line">
-      Ghazipur, Uttar Pradesh
-      <span>|</span> +91-7608085639
-      <span>|</span> <a href="mailto:ujjwal720946@gmail.com">ujjwal720946@gmail.com</a>
-      <span>|</span> <a href="https://www.linkedin.com/in/ujjwallll" target="_blank">LinkedIn</a>
-      <span>|</span> <a href="https://github.com/UjjwalKumar7209" target="_blank">GitHub</a>
-      <span>|</span> <a href="https://leetcode.com/u/_ujjwallk/" target="_blank">LeetCode</a>
-      <span>|</span> <a href="https://codolio.com/profile/_ujjwallk" target="_blank">Codolio</a>
-      <span>|</span> <a href="https://www.geeksforgeeks.org/profile/ujjwal7lbn2?tab=activity" target="_blank">GFG</a>
+      ul.achievements li a {
+        color: #1a4fa8;
+        text-decoration: none;
+      }
+
+      /* ── EDUCATION ── */
+      .edu-block {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .edu-left .degree {
+        font-weight: 700;
+        font-size: 10pt;
+        color: #0d0d0d;
+      }
+
+      .edu-left .institution {
+        font-size: 9.5pt;
+        color: #444;
+        margin-top: 1px;
+      }
+
+      .edu-right {
+        text-align: right;
+      }
+
+      .edu-right .years {
+        font-size: 9.5pt;
+        color: #444;
+      }
+
+      .edu-right .gpa {
+        font-size: 9.5pt;
+        color: #444;
+        margin-top: 1px;
+      }
+
+      .edu-right .gpa strong {
+        font-weight: 700;
+        color: #0d0d0d;
+      }
+
+      @media print {
+        body {
+          font-size: 10pt;
+        }
+        .page {
+          padding: 28px 40px;
+        }
+        a {
+          color: inherit !important;
+        }
+        .entry-link {
+          border-color: #555;
+          color: #555;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- HEADER -->
+      <header class="header">
+        <div class="hero-actions" role="group" aria-label="Resume actions">
+          <a
+            class="button button-primary"
+            href="resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            >View Resume</a
+          >
+          <a
+            class="button button-secondary"
+            href="resume.pdf"
+            download="Ujjwal_Kumar_Resume.pdf"
+            >Download Resume</a
+          >
+        </div>
+        <hr class="hero-divider" aria-hidden="true" />
+        <h1>Ujjwal Kumar</h1>
+        <div class="contact-line">
+          Ghazipur, Uttar Pradesh
+          <span>|</span> +91-7608085639 <span>|</span>
+          <a href="mailto:ujjwal720946@gmail.com">ujjwal720946@gmail.com</a>
+          <span>|</span>
+          <a href="https://www.linkedin.com/in/ujjwallll" target="_blank"
+            >LinkedIn</a
+          >
+          <span>|</span>
+          <a href="https://github.com/UjjwalKumar7209" target="_blank"
+            >GitHub</a
+          >
+          <span>|</span>
+          <a href="https://leetcode.com/u/_ujjwallk/" target="_blank"
+            >LeetCode</a
+          >
+          <span>|</span>
+          <a href="https://codolio.com/profile/_ujjwallk" target="_blank"
+            >Codolio</a
+          >
+          <span>|</span>
+          <a
+            href="https://www.geeksforgeeks.org/profile/ujjwal7lbn2?tab=activity"
+            target="_blank"
+            >GFG</a
+          >
+        </div>
+      </header>
+
+      <!-- SUMMARY -->
+      <section class="section summary">
+        <div class="section-title">Summary</div>
+        <p>
+          Full-Stack Developer with hands-on experience building AI-integrated
+          web applications using Next.js, React.js, Node.js, Express.js,
+          PostgreSQL, and TypeScript. Proficient in REST API design, JWT
+          authentication, and database optimization. Solved
+          <strong>500+ DSA problems</strong> across LeetCode, GFG, and Code360.
+        </p>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="section">
+        <div class="section-title">Technical Skills</div>
+        <div class="skills-grid">
+          <span class="skill-label">Languages:</span>
+          <span class="skill-value"
+            >JavaScript (ES6+), TypeScript, Python, C++, C</span
+          >
+
+          <span class="skill-label">Frontend:</span>
+          <span class="skill-value"
+            >React.js, Next.js, HTML5, CSS3, Tailwind CSS, Responsive Web
+            Design, GSAP</span
+          >
+
+          <span class="skill-label">Backend:</span>
+          <span class="skill-value"
+            >Node.js, Express.js, REST API Design, JWT Authentication, OAuth,
+            RBAC, Zod Validation</span
+          >
+
+          <span class="skill-label">Databases:</span>
+          <span class="skill-value"
+            >PostgreSQL, MongoDB, Redis, Prisma ORM, Mongoose, Query
+            Optimization, Schema Design</span
+          >
+
+          <span class="skill-label">AI Integration:</span>
+          <span class="skill-value"
+            >OpenRouter API, AI Workflow Orchestration, Stateful AI Pipelines,
+            Third-Party AI API Integration</span
+          >
+
+          <span class="skill-label">Tools &amp; Concepts:</span>
+          <span class="skill-value"
+            >Git, GitHub, Postman, Linux, DSA, OOP, DBMS</span
+          >
+        </div>
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section class="section">
+        <div class="section-title">Experience</div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-org">SDIS KIIT</span>
+            <span class="entry-location">KIIT University, Bhubaneswar</span>
+          </div>
+          <div class="entry-role-line">
+            <span class="entry-role">Frontend Engineering Contributor</span>
+            <span class="entry-date">Mar 2026</span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Built and deployed responsive React.js components for the official
+              SDIS event platform, handling
+              <strong>1,000+ registrations</strong> during a live event with
+              zero downtime.
+            </li>
+            <li>
+              Implemented reusable component architecture across 10+ pages,
+              reducing UI inconsistencies and speeding up feature delivery by
+              standardizing design patterns.
+            </li>
+            <li>
+              Worked closely with the team on code reviews and testing,
+              maintaining consistent quality across the codebase.
+            </li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-header">
+            <span class="entry-org">MLSA KIIT</span>
+            <span class="entry-location">KIIT University, Bhubaneswar</span>
+          </div>
+          <div class="entry-role-line">
+            <span class="entry-role">Project Wing Frontend Contributor</span>
+            <span class="entry-date">Jan 2025 – Feb 2025</span>
+          </div>
+          <ul class="bullets">
+            <li>
+              Built frontend UI components for a real-time video calling web app
+              using React.js, ensuring cross-browser compatibility and
+              responsive layouts.
+            </li>
+            <li>
+              Improved code quality through peer code reviews and QA testing,
+              identifying and resolving bugs before release.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section class="section">
+        <div class="section-title">Projects</div>
+
+        <div class="entry">
+          <div class="entry-title-line">
+            <span class="entry-name"
+              >SkillSynth - AI-Powered Interview Preparation Platform</span
+            >
+            <a
+              class="entry-link"
+              href="https://github.com/UjjwalKumar7209/skill-synth"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+          <ul class="bullets">
+            <li>
+              Built a full-stack AI platform using
+              <strong
+                >Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and
+                Prisma ORM</strong
+              >; designed a relational database schema with normalized tables
+              for users, sessions, and interview history.
+            </li>
+            <li>
+              Implemented end-to-end <strong>JWT authentication</strong> with
+              secure session management; integrated
+              <strong>OpenRouter API</strong> to power DSA, HR, and aptitude
+              interview modules with AI-generated feedback.
+            </li>
+            <li>
+              Built a responsive analytics dashboard with interview history
+              tracking; designed RESTful APIs with Zod validation and modular
+              Express.js middleware for authentication, logging, and error
+              handling.
+            </li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-title-line">
+            <span class="entry-name"
+              >Kurplex AI - AI-Powered Full-Stack Platform</span
+            >
+            <a
+              class="entry-link"
+              href="https://github.com/UjjwalKumar7209/kurplex-ai"
+              target="_blank"
+              >GitHub</a
+            >
+          </div>
+          <ul class="bullets">
+            <li>
+              Built a full-stack AI platform using
+              <strong>Next.js, TypeScript, PostgreSQL, Prisma ORM, Redis</strong
+              >, and Tailwind CSS; followed clean architecture principles
+              throughout.
+            </li>
+            <li>
+              Developed <strong>10+ RESTful APIs</strong> with JWT
+              authentication, session management, and Zod-based request
+              validation; connected third-party AI APIs to deliver core platform
+              features.
+            </li>
+            <li>
+              Created a reusable component library with
+              <strong>15+ composable UI components</strong>; optimized
+              PostgreSQL queries via schema normalization, reducing average API
+              response latency.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section class="section">
+        <div class="section-title">Achievements &amp; Awards</div>
+        <ul class="achievements">
+          <li>
+            <strong>Smart India Hackathon:</strong> Ranked
+            <strong>Top 8</strong> at the college level; built and demoed a
+            full-stack application within a 36-hour deadline competing against
+            teams from across the institution.
+          </li>
+          <li>
+            <strong>DSA &amp; Competitive Programming:</strong> Solved
+            <strong>500+ problems</strong> across
+            <a href="https://leetcode.com/u/_ujjwallk/" target="_blank"
+              >LeetCode</a
+            >,
+            <a
+              href="https://www.geeksforgeeks.org/profile/ujjwal7lbn2?tab=activity"
+              target="_blank"
+              >GeeksforGeeks</a
+            >, and Code360 covering arrays, trees, graphs, dynamic programming,
+            and greedy algorithms; achieved
+            <strong>Institute Rank 177</strong> on GeeksforGeeks; full stats on
+            <a href="https://codolio.com/profile/_ujjwallk" target="_blank"
+              >Codolio</a
+            >.
+          </li>
+        </ul>
+      </section>
+
+      <!-- EDUCATION -->
+      <section class="section">
+        <div class="section-title">Education</div>
+        <div class="edu-block">
+          <div class="edu-left">
+            <div class="degree">
+              B.Tech in Computer Science &amp; Engineering (AI and Machine
+              Learning)
+            </div>
+            <div class="institution">KIIT University, Bhubaneswar</div>
+          </div>
+          <div class="edu-right">
+            <div class="years">2024 – 2028</div>
+            <div class="gpa">CGPA: <strong>7.97</strong> / 10.0</div>
+          </div>
+        </div>
+      </section>
     </div>
-  </header>
-
-  <!-- SUMMARY -->
-  <section class="section summary">
-    <div class="section-title">Summary</div>
-    <p>Full-Stack Developer with hands-on experience building AI-integrated web applications using Next.js, React.js, Node.js, Express.js, PostgreSQL, and TypeScript. Proficient in REST API design, JWT authentication, and database optimization. Solved <strong>500+ DSA problems</strong> across LeetCode, GFG, and Code360.</p>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section">
-    <div class="section-title">Technical Skills</div>
-    <div class="skills-grid">
-      <span class="skill-label">Languages:</span>
-      <span class="skill-value">JavaScript (ES6+), TypeScript, Python, C++, C</span>
-
-      <span class="skill-label">Frontend:</span>
-      <span class="skill-value">React.js, Next.js, HTML5, CSS3, Tailwind CSS, Responsive Web Design, GSAP</span>
-
-      <span class="skill-label">Backend:</span>
-      <span class="skill-value">Node.js, Express.js, REST API Design, JWT Authentication, OAuth, RBAC, Zod Validation</span>
-
-      <span class="skill-label">Databases:</span>
-      <span class="skill-value">PostgreSQL, MongoDB, Redis, Prisma ORM, Mongoose, Query Optimization, Schema Design</span>
-
-      <span class="skill-label">AI Integration:</span>
-      <span class="skill-value">OpenRouter API, AI Workflow Orchestration, Stateful AI Pipelines, Third-Party AI API Integration</span>
-
-      <span class="skill-label">Tools &amp; Concepts:</span>
-      <span class="skill-value">Git, GitHub, Postman, Linux, DSA, OOP, DBMS</span>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="section">
-    <div class="section-title">Experience</div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-org">SDIS KIIT</span>
-        <span class="entry-location">KIIT University, Bhubaneswar</span>
-      </div>
-      <div class="entry-role-line">
-        <span class="entry-role">Frontend Engineering Contributor</span>
-        <span class="entry-date">Mar 2026</span>
-      </div>
-      <ul class="bullets">
-        <li>Built and deployed responsive React.js components for the official SDIS event platform, handling <strong>1,000+ registrations</strong> during a live event with zero downtime.</li>
-        <li>Implemented reusable component architecture across 10+ pages, reducing UI inconsistencies and speeding up feature delivery by standardizing design patterns.</li>
-        <li>Worked closely with the team on code reviews and testing, maintaining consistent quality across the codebase.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-header">
-        <span class="entry-org">MLSA KIIT</span>
-        <span class="entry-location">KIIT University, Bhubaneswar</span>
-      </div>
-      <div class="entry-role-line">
-        <span class="entry-role">Project Wing Frontend Contributor</span>
-        <span class="entry-date">Jan 2025 – Feb 2025</span>
-      </div>
-      <ul class="bullets">
-        <li>Built frontend UI components for a real-time video calling web app using React.js, ensuring cross-browser compatibility and responsive layouts.</li>
-        <li>Improved code quality through peer code reviews and QA testing, identifying and resolving bugs before release.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section">
-    <div class="section-title">Projects</div>
-
-    <div class="entry">
-      <div class="entry-title-line">
-        <span class="entry-name">SkillSynth — AI-Powered Interview Preparation Platform</span>
-        <a class="entry-link" href="https://github.com/UjjwalKumar7209/skill-synth" target="_blank">GitHub</a>
-      </div>
-      <ul class="bullets">
-        <li>Built a full-stack AI platform using <strong>Next.js, TypeScript, Node.js, Express.js, PostgreSQL, and Prisma ORM</strong>; designed a relational database schema with normalized tables for users, sessions, and interview history.</li>
-        <li>Implemented end-to-end <strong>JWT authentication</strong> with secure session management; integrated <strong>OpenRouter API</strong> to power DSA, HR, and aptitude interview modules with AI-generated feedback.</li>
-        <li>Built a responsive analytics dashboard with interview history tracking; designed RESTful APIs with Zod validation and modular Express.js middleware for authentication, logging, and error handling.</li>
-      </ul>
-    </div>
-
-    <div class="entry">
-      <div class="entry-title-line">
-        <span class="entry-name">Kurplex AI — AI-Powered Full-Stack Platform</span>
-        <a class="entry-link" href="https://github.com/UjjwalKumar7209/kurplex-ai" target="_blank">GitHub</a>
-      </div>
-      <ul class="bullets">
-        <li>Built a full-stack AI platform using <strong>Next.js, TypeScript, PostgreSQL, Prisma ORM, Redis</strong>, and Tailwind CSS; followed clean architecture principles throughout.</li>
-        <li>Developed <strong>10+ RESTful APIs</strong> with JWT authentication, session management, and Zod-based request validation; connected third-party AI APIs to deliver core platform features.</li>
-        <li>Created a reusable component library with <strong>15+ composable UI components</strong>; optimized PostgreSQL queries via schema normalization, reducing average API response latency.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ACHIEVEMENTS -->
-  <section class="section">
-    <div class="section-title">Achievements &amp; Awards</div>
-    <ul class="achievements">
-      <li><strong>Smart India Hackathon:</strong> Ranked <strong>Top 8</strong> at the college level; built and demoed a full-stack application within a 36-hour deadline competing against teams from across the institution.</li>
-      <li><strong>DSA &amp; Competitive Programming:</strong> Solved <strong>500+ problems</strong> across <a href="https://leetcode.com/u/_ujjwallk/" target="_blank">LeetCode</a>, <a href="https://www.geeksforgeeks.org/profile/ujjwal7lbn2?tab=activity" target="_blank">GeeksforGeeks</a>, and Code360 covering arrays, trees, graphs, dynamic programming, and greedy algorithms; achieved <strong>Institute Rank 177</strong> on GeeksforGeeks; full stats on <a href="https://codolio.com/profile/_ujjwallk" target="_blank">Codolio</a>.</li>
-    </ul>
-  </section>
-
-  <!-- EDUCATION -->
-  <section class="section">
-    <div class="section-title">Education</div>
-    <div class="edu-block">
-      <div class="edu-left">
-        <div class="degree">B.Tech in Computer Science &amp; Engineering (AI and Machine Learning)</div>
-        <div class="institution">KIIT University, Bhubaneswar</div>
-      </div>
-      <div class="edu-right">
-        <div class="years">2024 – 2028</div>
-        <div class="gpa">CGPA: <strong>7.97</strong> / 10.0</div>
-      </div>
-    </div>
-  </section>
-
-</div>
-</body>
+  </body>
 </html>
